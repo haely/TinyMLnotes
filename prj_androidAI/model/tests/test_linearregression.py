@@ -5,33 +5,36 @@ import numpy as np
 import pytest
 
 # --- Test Cases ---
-
 def test_model_accuracy():
     """
-    Verify the accuracy of the TensorFlow Lite model.
+    Verify the accuracy of the TensorFlow Lite model using random dummy data.
     """
-    # Load the TFLite model
-    interpreter = tf.lite.Interpreter(model_path="../home_price_model.tflite")  # Updated path
+    interpreter = tf.lite.Interpreter(model_path="../home_price_model.tflite")
     interpreter.allocate_tensors()
 
-    # ... (load your test data: test_zipcodes, test_sqft, test_home_values) ...
+    # Generate random test data and calculate expected prices
+    np.random.seed(1)  # Use a different seed than your training data
+    test_zipcodes = np.random.randint(10000, 99999, size=100)
+    test_sqft = np.random.randint(500, 5000, size=100)
+    # Use the same equation from your training data generation
+    test_home_prices = 500 * test_sqft + 10 * test_zipcodes + 10000  
 
     input_details = interpreter.get_input_details()
     output_details = interpreter.get_output_details()
 
     predictions = []
     for zipcode, sqft in zip(test_zipcodes, test_sqft):
-        input_data = np.array([zipcode, sqft], dtype=np.float32).reshape(1, 2) 
+        input_data = np.array([zipcode, sqft], dtype=np.float32).reshape(1, 2)
         interpreter.set_tensor(input_details[0]['index'], input_data)
         interpreter.invoke()
         output_data = interpreter.get_tensor(output_details[0]['index'])
         predictions.append(output_data[0][0])
 
     # Calculate Mean Squared Error
-    mse = np.mean((test_home_values - predictions)**2) 
+    mse = np.mean((test_home_prices - predictions)**2)
 
-    # Assert that the MSE is below a threshold (e.g., 10000)
-    assert mse < 10000, f"MSE too high: {mse}" 
+    # Assert that the MSE is below a threshold (adjust as needed)
+    assert mse < 10000, f"MSE too high: {mse}"
 
 def test_input_shape():
     """
