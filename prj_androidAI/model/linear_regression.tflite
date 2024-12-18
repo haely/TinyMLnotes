@@ -1,0 +1,25 @@
+import tensorflow as tf
+import numpy as np
+
+# Generate some random data (replace with real data if you have any)
+np.random.seed(0)
+zipcodes = np.random.randint(10000, 99999, size=1000)
+sqft = np.random.randint(500, 5000, size=1000)
+home_values = 1000 * sqft + 10 * zipcodes  # Simple linear relationship
+
+# Create a simple linear regression model
+model = tf.keras.Sequential([
+    tf.keras.layers.Dense(units=1, input_shape=[2])  # 2 inputs (zipcode, sqft)
+])
+model.compile(loss='mean_squared_error', optimizer=tf.keras.optimizers.Adam(0.1))
+
+# Train the model (very basic training)
+model.fit(x=np.column_stack((zipcodes, sqft)), y=home_values, epochs=10)
+
+# Convert the model to TensorFlow Lite
+converter = tf.lite.TFLiteConverter.from_keras_model(model)
+tflite_model = converter.convert()
+
+# Save the TensorFlow Lite model
+with open('linear_regression.tflite', 'wb') as f:
+  f.write(tflite_model)
