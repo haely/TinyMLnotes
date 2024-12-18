@@ -11,7 +11,7 @@ def test_model_accuracy():
     Verify the accuracy of the TensorFlow Lite model.
     """
     # Load the TFLite model
-    interpreter = tf.lite.Interpreter(model_path="../linear_regression.tflite")  # Updated path
+    interpreter = tf.lite.Interpreter(model_path="../home_price_model.tflite")  # Updated path
     interpreter.allocate_tensors()
 
     # ... (load your test data: test_zipcodes, test_sqft, test_home_values) ...
@@ -37,7 +37,7 @@ def test_input_shape():
     """
     Ensure the model handles the correct input shape.
     """
-    interpreter = tf.lite.Interpreter(model_path="../linear_regression.tflite")  # Updated path
+    interpreter = tf.lite.Interpreter(model_path="../home_price_model.tflite")  # Updated path
     interpreter.allocate_tensors()
 
     # Correct input shape
@@ -58,7 +58,7 @@ def test_model_loading():
     Confirm that the .tflite model can be loaded successfully.
     """
     try:
-        interpreter = tf.lite.Interpreter(model_path="../linear_regression.tflite")  # Updated path
+        interpreter = tf.lite.Interpreter(model_path="../home_price_model.tflite")  # Updated path
         interpreter.allocate_tensors() 
     except Exception as e:
         pytest.fail(f"Model loading failed: {e}")
