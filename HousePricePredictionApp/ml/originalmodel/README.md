@@ -22,8 +22,8 @@ Using median values for missing features helps to:
 ## Files
 
 *   **`house_price_model.tflite`:** The pre-trained TensorFlow Lite model.
-*   **`model.py`:**  Contains the prediction logic and uses the TensorFlow Lite model.
-*   **`train_and_convert.py`:** (Optional) Used to train and convert the model (for future retraining).
+*   **`predict_price.py`:**  Contains the prediction logic and uses the TensorFlow Lite model.
+*   **`gen_tflite.py`:**  Used and convert the model (for future retraining).
 
 ## Dependencies
 
