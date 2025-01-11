@@ -1,5 +1,3 @@
-# model.py
-
 from sklearn.preprocessing import MinMaxScaler
 import tensorflow as tf
 import numpy as np
