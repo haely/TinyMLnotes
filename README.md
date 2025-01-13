@@ -24,12 +24,10 @@ This project aims to build an Android app that allows users to:
 
 **Current Status:** Building basic template for app. tflite for dummy model is done.
 
-**Future Plans:** Use a full fledged model. Maybe consider LLM.
 
 ## Getting Started
 
-1. **Clone the repository:** `git clone https://github.com/your-username/your-repo-name.git`
-2. **Explore the folders:**
+1. **Explore the folders:**
     * `LectureNotes`: Contains notes in PNG and Excel format.
     * `labs`: Contains code and resources for the TinyML labs.
     * `prj_AndroidAI`: Contains various projects, each with its own README file.
@@ -39,10 +37,3 @@ This project aims to build an Android app that allows users to:
 
 * [MIT TinyML Course](https://www.edx.org/course/tiny-machine-learning-tinyml)
   
-## Contributing
-
-Feel free to add a PR/issue for anything here. 
-
-## License
-
-todo
