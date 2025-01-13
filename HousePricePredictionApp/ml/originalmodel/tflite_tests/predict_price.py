@@ -65,9 +65,16 @@ def predict_house_price(lot_area, year_built):
     input_data = scaler.transform([input_features])
 
     # Set the input tensor
-    interpreter.set_tensor(input_details[0]['index'], input_data)
+    interpreter.set_tensor(input_details[0]['index'], input_data.astype(np.float32)) 
     interpreter.invoke()
 
     # Get the output tensor
     output_data = interpreter.get_tensor(output_details[0]['index'])
     return output_data[0][0]
+
+if __name__ == "__main__":
+    lot_area = 5000  # Example lot area
+    year_built = 2000  # Example year built
+
+    predicted_price = predict_house_price(lot_area, year_built)
+    print(f"Predicted house price: ${predicted_price:.2f}") 

@@ -1,5 +1,7 @@
 # House Price Prediction App
 
+# Haely - to do - see what the difference is between two weight files
+
 This Android app predicts house prices based on lot area and year built. It uses a pre-trained neural network model and median values for other features.
 
 The model training and conversion code can be found here: [https://github.com/Prajwal10031999/House-Price-Prediction-with-ANN/tree/main]
