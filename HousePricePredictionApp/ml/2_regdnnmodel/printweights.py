@@ -1,3 +1,4 @@
+import tensorflow as tf
 import h5py
 import numpy as np
 
@@ -21,3 +22,7 @@ def print_weights_from_h5(file_path):
 
 file_path = 'reg_dnn_model_weights.h5'
 print_weights_from_h5(file_path)
+
+# --- Load the pre-trained model ---
+model = tf.keras.models.load_model("reg_dnn_model.keras")  # Load the entire model
+print(model.summary())
