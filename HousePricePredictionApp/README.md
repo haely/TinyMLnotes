@@ -1,14 +1,18 @@
-# Run a simple ML model  on Android
+# ML Model Performance Comparison
 
-This repository demonstrates how to run a simple ANN  model on an Android device (for now). The project aims to include a pre-trained TensorFlow Lite model and a basic Android application that uses the model to make predictions.
+This folder contains code and results for comparing the performance of different machine learning models in their original format (e.g., Keras) and their TensorFlow Lite versions. The goal is to evaluate the potential benefits of using TensorFlow Lite in terms of execution time, memory usage, and accuracy.
 
-## Project Structure
+## Subfolders
 
-* **app:** Contains the Android application code.
-* **model:** Contains the pre-trained model that can predict prices for houses. 
+Each subfolder represents a different machine learning model:
 
 
-## Notes
-* This is a basic example to illustrate how to run a machine learning model on Android.
-* Consider optimizing the model for mobile deployment using techniques like quantization.
+## Contents of Each Model Folder
+
+Within each model folder, you'll find:
+
+* **`model.keras`:** The original Keras model file.
+* **`model.tflite`:** The TensorFlow Lite model file.
+* **`predict_price.py`:** A Python script to load both models, make predictions, and compare their performance (execution time, memory usage, and prediction results).
+
 
