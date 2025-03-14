@@ -1,0 +1,22 @@
+# Exclude Rust build files
+target/
+*.rs.bk
+
+# Exclude Python bytecode files and virtual environments
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+venv/
+env/
+
+# Exclude text files and CSV files
+*.txt
+*.csv
+
+# Exclude other unnecessary files
+.DS_Store
+*.log
+*.swp
+
